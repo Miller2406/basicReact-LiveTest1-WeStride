@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useState } from "react";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  const incCount = () => {
+    setCount(count + 1);
+  };
+
+  const decCount = () => {
+    count >= 1 && setCount(count - 1);
+  };
 
   return (
-    <>
+    <div className="App">
+      <h1>Test Basic React 1</h1>
+      <div className="count">{count < 10 ? "0" + count : count}</div>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <button onClick={incCount}>+</button>
+        <button onClick={decCount}>-</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
